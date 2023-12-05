@@ -1,9 +1,9 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.snack;
 
 /**
- * Фрукт
+ * Шоколадный батончик
  */
-public class Fruit implements HealthyFood{
+public class ChocolateBar implements Snack {
     @Override
     public boolean getProteins() {
         return false;
@@ -21,6 +21,6 @@ public class Fruit implements HealthyFood{
 
     @Override
     public String getName() {
-        return "Фрукт";
+        return "Шоколадный батончик";
     }
 }

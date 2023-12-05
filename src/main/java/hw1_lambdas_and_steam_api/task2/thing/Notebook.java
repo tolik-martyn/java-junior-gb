@@ -1,4 +1,6 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing;
+
+import hw1_lambdas_and_steam_api.task2.thing.Thing;
 
 /**
  * Блокнот

@@ -1,5 +1,19 @@
 package hw1_lambdas_and_steam_api.task2;
 
+import hw1_lambdas_and_steam_api.task2.thing.Notebook;
+import hw1_lambdas_and_steam_api.task2.thing.Pen;
+import hw1_lambdas_and_steam_api.task2.thing.Thing;
+import hw1_lambdas_and_steam_api.task2.thing.food.Food;
+import hw1_lambdas_and_steam_api.task2.thing.food.healthy_food.Chicken;
+import hw1_lambdas_and_steam_api.task2.thing.food.healthy_food.Fruit;
+import hw1_lambdas_and_steam_api.task2.thing.food.healthy_food.OliveOil;
+import hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food.Cheburek;
+import hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food.DumplingsBerries;
+import hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food.DumplingsMeat;
+import hw1_lambdas_and_steam_api.task2.thing.food.snack.BalykCheese;
+import hw1_lambdas_and_steam_api.task2.thing.food.snack.ChocolateBar;
+import hw1_lambdas_and_steam_api.task2.thing.food.snack.Crisps;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;

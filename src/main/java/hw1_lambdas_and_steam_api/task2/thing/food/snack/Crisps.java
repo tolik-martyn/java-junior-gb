@@ -1,9 +1,9 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.snack;
 
 /**
  * Чипсы
  */
-public class Crisps implements Snack{
+public class Crisps implements Snack {
     @Override
     public boolean getProteins() {
         return false;

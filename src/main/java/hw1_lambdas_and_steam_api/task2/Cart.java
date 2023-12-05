@@ -1,5 +1,7 @@
 package hw1_lambdas_and_steam_api.task2;
 
+import hw1_lambdas_and_steam_api.task2.thing.food.Food;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;

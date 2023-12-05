@@ -1,9 +1,9 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.snack;
 
 /**
- * Пельмени
+ * Сыр Балыковый (Балык)
  */
-public class DumplingsMeat implements SemiFinishedFood{
+public class BalykCheese implements Snack {
     @Override
     public boolean getProteins() {
         return true;
@@ -21,7 +21,6 @@ public class DumplingsMeat implements SemiFinishedFood{
 
     @Override
     public String getName() {
-        return "Пельмени";
+        return "Сыр (Балык)";
     }
 }
-

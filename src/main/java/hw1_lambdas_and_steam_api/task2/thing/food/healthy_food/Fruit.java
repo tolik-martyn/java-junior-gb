@@ -1,9 +1,11 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.healthy_food;
+
+import hw1_lambdas_and_steam_api.task2.thing.food.healthy_food.HealthyFood;
 
 /**
- * Замороженные ягоды
+ * Фрукт
  */
-public class DumplingsBerries implements SemiFinishedFood{
+public class Fruit implements HealthyFood {
     @Override
     public boolean getProteins() {
         return false;
@@ -21,6 +23,6 @@ public class DumplingsBerries implements SemiFinishedFood{
 
     @Override
     public String getName() {
-        return "Замороженные ягоды";
+        return "Фрукт";
     }
 }

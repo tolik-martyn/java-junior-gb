@@ -1,5 +1,11 @@
 package hw1_lambdas_and_steam_api.task2;
 
+import hw1_lambdas_and_steam_api.task2.thing.Thing;
+import hw1_lambdas_and_steam_api.task2.thing.food.Food;
+import hw1_lambdas_and_steam_api.task2.thing.food.healthy_food.HealthyFood;
+import hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food.SemiFinishedFood;
+import hw1_lambdas_and_steam_api.task2.thing.food.snack.Snack;
+
 import java.util.Scanner;
 
 public class Program {

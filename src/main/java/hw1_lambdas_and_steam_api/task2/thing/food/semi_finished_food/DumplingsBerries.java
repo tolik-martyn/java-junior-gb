@@ -1,9 +1,9 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food;
 
 /**
- * Шоколадный батончик
+ * Замороженные ягоды
  */
-public class ChocolateBar implements Snack{
+public class DumplingsBerries implements SemiFinishedFood {
     @Override
     public boolean getProteins() {
         return false;
@@ -21,6 +21,6 @@ public class ChocolateBar implements Snack{
 
     @Override
     public String getName() {
-        return "Шоколадный батончик";
+        return "Замороженные ягоды";
     }
 }

@@ -1,9 +1,9 @@
-package hw1_lambdas_and_steam_api.task2;
+package hw1_lambdas_and_steam_api.task2.thing.food.semi_finished_food;
 
 /**
  * Чебурек
  */
-public class Cheburek implements SemiFinishedFood{
+public class Cheburek implements SemiFinishedFood {
     @Override
     public boolean getProteins() {
         return false;
