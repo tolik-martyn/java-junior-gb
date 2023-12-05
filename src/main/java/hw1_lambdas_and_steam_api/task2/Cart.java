@@ -23,10 +23,10 @@ public class Cart<T extends Food> {
 
     /**
      * Создание нового экземпляра корзины
+     *
      * @param market принадлежность к магазину
      */
-    public Cart(Class<T> clazz, UMarket market)
-    {
+    public Cart(Class<T> clazz, UMarket market) {
         this.clazz = clazz;
         this.market = market;
         foodstuffs = new ArrayList<>();
@@ -37,59 +37,58 @@ public class Cart<T extends Food> {
     /**
      * Балансировка корзины
      */
-    public void cardBalancing()
-    {
-        boolean proteins = false;
-        boolean fats = false;
-        boolean carbohydrates = false;
+    public void cardBalancing() {
+        boolean proteins = hasProteins();
+        boolean fats = hasFats();
+        boolean carbohydrates = hasCarbohydrates();
 
-        for (var food : foodstuffs)
-        {
-            if (!proteins && food.getProteins())
-                proteins = true;
-            else
-            if (!fats && food.getFats())
-                fats = true;
-            else
-            if (!carbohydrates && food.getCarbohydrates())
-                carbohydrates = true;
-            if (proteins && fats && carbohydrates)
-                break;
-        }
-
-        if (proteins && fats && carbohydrates)
-        {
+        if (proteins && fats && carbohydrates) {
             System.out.println("Корзина уже сбалансирована по БЖУ.");
             return;
         }
 
-        for (var thing : market.getThings(clazz))
-        {
-            if (!proteins && thing.getProteins())
-            {
-                proteins = true;
-                foodstuffs.add(thing);
-            }
-            else if (!fats && thing.getFats())
-            {
-                fats = true;
-                foodstuffs.add(thing);
-            }
-            else if (!carbohydrates && thing.getCarbohydrates())
-            {
-                carbohydrates = true;
-                foodstuffs.add(thing);
-            }
-            if (proteins && fats && carbohydrates)
-                break;
+        if (!proteins) {
+            market.getThings(clazz).stream()
+                    .filter(Food::getProteins)
+                    .findFirst()
+                    .ifPresent(foodstuffs::add);
+            proteins = hasProteins();
         }
 
-        if (proteins && fats && carbohydrates)
+        if (!fats) {
+            market.getThings(clazz).stream()
+                    .filter(Food::getFats)
+                    .findFirst()
+                    .ifPresent(foodstuffs::add);
+            fats = hasFats();
+        }
+
+        if (!carbohydrates) {
+            market.getThings(clazz).stream()
+                    .filter(Food::getCarbohydrates)
+                    .findFirst()
+                    .ifPresent(foodstuffs::add);
+            carbohydrates = hasCarbohydrates();
+        }
+
+        if (proteins && fats && carbohydrates) {
             System.out.println("Корзина сбалансирована по БЖУ.");
-        else
+        } else {
             System.out.println("Невозможно сбалансировать корзину по БЖУ.");
+        }
     }
 
+    private boolean hasProteins() {
+        return foodstuffs.stream().anyMatch(Food::getProteins);
+    }
+
+    private boolean hasFats() {
+        return foodstuffs.stream().anyMatch(Food::getFats);
+    }
+
+    private boolean hasCarbohydrates() {
+        return foodstuffs.stream().anyMatch(Food::getCarbohydrates);
+    }
 
     public Collection<T> getFoodstuffs() {
         return foodstuffs;
@@ -98,8 +97,7 @@ public class Cart<T extends Food> {
     /**
      * Распечатать список продуктов в корзине
      */
-    public void printFoodstuffs()
-    {
+    public void printFoodstuffs() {
         AtomicInteger index = new AtomicInteger(1);
         foodstuffs.forEach(food -> System.out.printf("[%d] %s (Белки: %s Жиры: %s Углеводы: %s)\n",
                 index.getAndIncrement(), food.getName(),
@@ -107,5 +105,4 @@ public class Cart<T extends Food> {
                 food.getFats() ? "Да" : "Нет",
                 food.getCarbohydrates() ? "Да" : "Нет"));
     }
-
 }
