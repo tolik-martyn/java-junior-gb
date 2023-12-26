@@ -8,12 +8,20 @@ services:
       - MYSQL_DATABASE=SchoolDB
     ports:
       - "3306:3306"
+    networks:
+      - my_network
 
   app:
-    image: hw4_databases
+    image: app_for_db
     container_name: school.app
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
       - mysql
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

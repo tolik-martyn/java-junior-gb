@@ -8,20 +8,25 @@ import org.hibernate.cfg.Configuration;
 public class App {
 
     public static void main(String[] args) {
+
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
 
-        createDatabase(sessionFactory);
-        insertCourse(sessionFactory);
-        readCourse(sessionFactory);
-        updateCourse(sessionFactory);
-        readCourse(sessionFactory);
-        deleteCourse(sessionFactory);
-        readCourse(sessionFactory);
+        try {
+            createDatabase(sessionFactory);
+            insertCourse(sessionFactory);
+            insertCourse(sessionFactory);
+            readCourse(sessionFactory);
+            updateCourse(sessionFactory);
+            readCourse(sessionFactory);
+            deleteCourse(sessionFactory);
+            readCourse(sessionFactory);
 
-        sessionFactory.close();
+        } finally {
+            sessionFactory.close();
+        }
     }
 
     private static void createDatabase(SessionFactory sessionFactory) {
@@ -48,23 +53,23 @@ public class App {
     }
 
     private static void insertCourse(SessionFactory sessionFactory) {
-        try (Session session = sessionFactory.getCurrentSession()) {
-            Transaction transaction = null;
 
-            try {
-                transaction = session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = null;
 
-                // Insert
-                Course course = new Course("Java Programming", 10);
-                session.save(course);
+        try {
+            transaction = session.beginTransaction();
 
-                transaction.commit();
-            } catch (Exception e) {
-                if (transaction != null) {
-                    transaction.rollback();
-                }
-                System.err.println("Ошибка в методе insertCourse");
+            // Insert
+            Course course = new Course("Java Programming", 10);
+            session.save(course);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
             }
+            System.err.println("Ошибка в методе insertCourse");
         }
     }
 
