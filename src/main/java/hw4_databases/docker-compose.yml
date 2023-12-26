@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.33
+    container_name: school.db
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=SchoolDB
+    ports:
+      - "3306:3306"
+
+  app:
+    image: hw4_databases
+    container_name: school.app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
