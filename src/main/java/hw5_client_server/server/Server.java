@@ -7,6 +7,9 @@ import java.net.Socket;
 public class Server {
     private final ServerSocket serverSocket;
 
+    /**
+     * Сервер для принятия подключений от клиентов и управления чатом.
+     */
     public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }

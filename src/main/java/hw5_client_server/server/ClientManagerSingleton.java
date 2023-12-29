@@ -2,6 +2,9 @@ package hw5_client_server.server;
 
 import java.util.ArrayList;
 
+/**
+ * Singleton для управления коллекцией клиентских менеджеров.
+ */
 public class ClientManagerSingleton {
     private static ArrayList<ClientManager> clients;
     private ClientManagerSingleton(){

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.UnknownHostException;
 
+/**
+ * Программа сервера для управления чатом.
+ */
 public class ServerProgram {
     private static final int SERVER_PORT = 1400;
 

@@ -3,6 +3,9 @@ package hw5_client_server.server;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Менеджер клиента для обработки входящих сообщений и управления соединением.
+ */
 public class ClientManager implements Runnable {
     private Socket socket;
     private BufferedReader bufferedReader;
@@ -24,8 +27,7 @@ public class ClientManager implements Runnable {
     }
 
     /**
-     * Завершение работы всех потоков, закрытие соединения с клиентским сокетом,
-     * удаление клиентского сокета из коллекции.
+     * Завершение работы всех потоков, закрытие соединения с клиентским сокетом, удаление клиентского сокета из коллекции.
      */
     private void closeEverything() {
         removeClient();

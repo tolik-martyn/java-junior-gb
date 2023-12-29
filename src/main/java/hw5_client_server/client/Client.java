@@ -3,6 +3,9 @@ package hw5_client_server.client;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Клиент для обмена сообщениями в чате.
+ */
 public class Client {
     private final Socket socket;
     private BufferedReader bufferedReader;

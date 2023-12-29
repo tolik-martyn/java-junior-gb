@@ -6,6 +6,9 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+/**
+ * Программа клиента для подключения к серверу чата.
+ */
 public class ClientProgram {
     private static final int SERVER_PORT = 1400;
 
