@@ -42,7 +42,12 @@ public class Client {
                         if (parts.length == 2) {
                             String recipient = parts[0].substring(1);
                             String msg = parts[1];
-                            bufferedWriter.write("Личное сообщение от пользователя " + name + ": " + msg);
+                            bufferedWriter.write("Личное сообщение пользователю "
+                                    + recipient
+                                    + " от пользователя "
+                                    + name
+                                    + ": "
+                                    + msg);
                             bufferedWriter.newLine();
                             bufferedWriter.flush();
                         } else {
@@ -95,9 +100,5 @@ public class Client {
         } catch (IOException e) {
             System.err.println("Что-то пошло не так в методе \"closeEverything\" класса \"Client\".");
         }
-    }
-
-    public String getName() {
-        return name;
     }
 }
